@@ -11,5 +11,8 @@ namespace Blog.Data.Context
 
         public DbSet<User> Users { get; set; }
         public DbSet<Blog.Data.Models.Blog> Blogs { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Page> Pages { get; set; }
+        
     }
 }
