@@ -6,7 +6,7 @@ namespace Blog.Data.Enums
 {
     public enum PageKind
     {
-        About=1
+        About=1,
 
     }
 }

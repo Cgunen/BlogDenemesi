@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
 <html>
 <head>
     <title> Bu Sitenin Başlığı!</title>
@@ -16,10 +16,21 @@
                 <div><a href="@Url.Action("Index","Home")">Anasayfa</a></div>
                 <div><a href="@Url.Action("Index","AboutUs")">Hakkımda</a></div>
                 <div><a href="@Url.Action("Index","Contact")">İletişim</a></div>
-                
-            </div>   
+                @{
+                    int? userId = Context.Session.GetInt32("UserId");
+                    if (userId != null && userId != 0)
+                    {
+                        <div><a href="@Url.Action("Login","User")">Çıkış Yap</a></div>
+                    }
+                    else
+                    {
+                        <div><a href="@Url.Action("Login","User")">Kullanıcı Girişi</a></div>
+                    }
+                }
+
+            </div>
             <div class="col-8">@RenderBody()</div>
-    </div>
+        </div>
 </body>
 
 </html>
