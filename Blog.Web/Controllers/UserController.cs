@@ -44,6 +44,11 @@ namespace Blog.Web.Controllers
                
         }
 
-
+        [HttpGet]
+        public IActionResult LogoutAction()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

@@ -74,6 +74,7 @@
             },
             LoginButton_Callback: function (result) {
                 console.log(result);
+                window.location.href = "/";
             },
             LoginButton_Callback_Error: function (request, status, error) {
                 console.log(error);
@@ -82,6 +83,37 @@
             
             }
 
+        }
+    },
+    Blog: {
+        New: {
+            Save: function () {
+                var title = $("#Title").val();
+                var content = $("#Content").val();
+                var data = {
+                    Title: title,
+                    Content: content
+
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "/Blog/Add",
+                    data: JSON.stringify(data),
+                    success: Page.Blog.New.Save_Callback,
+                    error: Page.Blog.New.Save_Callback_Error,
+                    dataType: "json",
+                    contentType: "application/json"
+                });
+
+            },
+            Save_Callback: function (result) {
+                console.log(result);
+            },
+            Save_CallbackError: function (request, status, error) {
+                console.log(request);
+                console.log(status);
+                console.log(error);
+            }
         }
     }
 }

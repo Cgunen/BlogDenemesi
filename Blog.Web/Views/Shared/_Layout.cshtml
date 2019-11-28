@@ -20,7 +20,8 @@
                     int? userId = Context.Session.GetInt32("UserId");
                     if (userId != null && userId != 0)
                     {
-                        <div><a href="@Url.Action("Login","User")">Çıkış Yap</a></div>
+                        <div><a href="@Url.Action("New","Blog")">Yeni</a></div>
+                        <div><a href="@Url.Action("LogoutAction","User")">Çıkış Yap</a></div>
                     }
                     else
                     {
